@@ -24,3 +24,23 @@ The program prints the original image and the result of each operation in the te
 
 ## Libraries
 Only core Python is used for the image-processing logic.
+## Bonus: PPM Image Loading
+
+I extended my Pure Python Image Processor by adding a function called `load_ppm()` to load colour images from PPM (Portable Pixmap) files.
+
+The function reads a P3 PPM file, extracts the image dimensions and RGB pixel values, and stores the image as a nested Python list. Each pixel is represented by three values: Red, Green, and Blue, ranging from 0 to 255.
+
+### How It Works
+- Opens and reads a PPM file using Python's built-in file handling.
+- Extracts the image format, width, height, and maximum colour value.
+- Reads the RGB values and groups them into rows and pixels.
+- Returns the loaded colour image as a nested list.
+
+### Test File
+I created a sample file named `sample.ppm` containing a 2 × 2 colour image with red, green, blue, and yellow pixels.
+
+### Limitations
+The loader supports plain-text P3 PPM files. It does not currently support binary P6 files or comprehensive validation of malformed files.
+
+### Libraries Used
+Only core Python features were used. No NumPy, OpenCV, or Pillow were used for image processing.
