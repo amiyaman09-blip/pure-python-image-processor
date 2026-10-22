@@ -34,7 +34,7 @@ print("\nINVERTED IMAGE:")
 inverted = invert_image(image)
 print_image(inverted)
 
-# Function to adjust image brightness
+
 def adjust_brightness(img, amount):
     result = []
 
@@ -61,7 +61,7 @@ print("\nBRIGHTER IMAGE:")
 brighter = adjust_brightness(image, 40)
 print_image(brighter)
 
-# Function to convert image to black and white
+
 def threshold_image(img, threshold):
     result = []
 
@@ -83,7 +83,6 @@ print("\nTHRESHOLDED IMAGE:")
 thresholded = threshold_image(image, 100)
 print_image(thresholded)
 
-# Function to flip the image horizontally
 def flip_horizontal(img):
     result = []
 
@@ -98,7 +97,7 @@ print("\nHORIZONTALLY FLIPPED IMAGE:")
 flipped = flip_horizontal(image)
 print_image(flipped)
 
-# Function to rotate the image 90 degrees clockwise
+
 def rotate_clockwise(img):
     rows = len(img)
     cols = len(img[0])
@@ -120,20 +119,19 @@ print("\nROTATED IMAGE:")
 rotated = rotate_clockwise(image)
 print_image(rotated)
 
-# Function to blur the image
+
 def blur_image(img):
     rows = len(img)
     cols = len(img[0])
 
-    # Copy the original image
+    
     result = [row[:] for row in img]
 
-    # Process only the inner pixels
     for r in range(1, rows - 1):
         for c in range(1, cols - 1):
             total = 0
 
-            # Look at the 3x3 neighbourhood
+            
             for dr in range(-1, 2):
                 for dc in range(-1, 2):
                     total += img[r + dr][c + dc]
