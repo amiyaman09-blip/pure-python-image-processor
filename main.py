@@ -145,3 +145,52 @@ print("\nBLURRED IMAGE:")
 blurred = blur_image(image)
 print_image(blurred)
 
+def load_ppm(filename):
+    with open(filename, "r") as file:
+        lines = file.readlines()
+
+    data = []
+
+    for line in lines:
+        line = line.strip()
+
+        if line and not line.startswith("#"):
+            data.extend(line.split())
+
+    if data[0] != "P3":
+        print("Unsupported file format")
+        return None
+
+    width = int(data[1])
+    height = int(data[2])
+    max_value = int(data[3])
+
+    values = data[4:]
+
+    image = []
+    index = 0
+
+    for r in range(height):
+        row = []
+
+        for c in range(width):
+            red = int(values[index])
+            green = int(values[index + 1])
+            blue = int(values[index + 2])
+
+            row.append([red, green, blue])
+            index += 3
+
+        image.append(row)
+
+    return image
+
+
+print("\nPPM IMAGE:")
+color_image = load_ppm("sample.ppm")
+
+if color_image is not None:
+    for row in color_image:
+        print(row)
+
+
