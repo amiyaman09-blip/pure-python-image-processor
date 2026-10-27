@@ -93,7 +93,3 @@ I created a sample file named `sample.ppm` containing a 2 x 2 colour image with 
 
 ### Libraries Used
 Only core Python and its built-in standard library modules (`os`, `zlib` and `struct`) were used. No NumPy, OpenCV, or Pillow were used for image processing.
-
-### Limitations
-The loader supports plain-text P3 PPM files. It does not currently support binary P6 files or comprehensive validation of malformed files.
-
